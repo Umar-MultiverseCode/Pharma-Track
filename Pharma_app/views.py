@@ -1,9 +1,9 @@
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from django.http import JsonResponse
- 
+from django.shortcuts import render
 
-# Create your views here.
-def home(request):
-    return render(request,'landing.html')
+def landing_page(request):
+    return render(request, 'landing.html')
+
+def login_view(request):
+    return render(request, 'login.html')
+
 
