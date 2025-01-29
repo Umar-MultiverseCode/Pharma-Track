@@ -1,5 +1,191 @@
 {% extends 'base.html' %}
 {% block title %}Distribution - PharmaCare{% endblock %}
+
 {% block content %}
-    <h2>Distribution Management</h2>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #007BFF;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Distribution Management Section */
+        .distribution-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .dist-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .dist-value {
+            font-size: 18px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .dist-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .dist-status {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FF9800;
+        }
+
+        .dist-message {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Alert Styles */
+        .alert-card {
+            background-color: #FF9800;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .alert-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .alert-message {
+            font-size: 16px;
+        }
+
+        /* Recent Shipments Section */
+        .shipments-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .shipments-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .shipment-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .shipment-status {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .shipment-message {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Temperature Controlled Logistics */
+        .temp-logistics-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .temp-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .temp-status {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FF5722;
+        }
+
+        .temp-message {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+
+    <h2>Distribution Management Overview</h2>
+
+    <!-- Distribution Data -->
+    <div class="distribution-container">
+        <div class="dist-title">Live Distribution Status</div>
+        <div class="dist-value">Monitoring: Active</div>
+        <div class="dist-card">
+            <div class="dist-status">Shipment Delays:</div>
+            <div class="dist-message">Shipment #210 has been delayed by 2 days. Delivery expected by tomorrow.</div>
+        </div>
+        <div class="dist-card">
+            <div class="dist-status">Route Optimization:</div>
+            <div class="dist-message">Optimal delivery routes have been set for all active shipments.</div>
+        </div>
+    </div>
+
+    <!-- Distribution Alerts -->
+    <div class="alert-card">
+        <div class="alert-title">Immediate Attention Required</div>
+        <div class="alert-message">Temperature-controlled shipment #112 has reported a deviation of 2°C. Please check the temperature logs immediately.</div>
+    </div>
+
+    <!-- Recent Shipments Section -->
+    <div class="shipments-container">
+        <div class="shipments-title">Recent Shipments</div>
+        <div class="shipment-card">
+            <div class="shipment-status">Shipment #105:</div>
+            <div class="shipment-message">Delivered successfully with no issues.</div>
+        </div>
+        <div class="shipment-card">
+            <div class="shipment-status">Shipment #106:</div>
+            <div class="shipment-message">Delivered with a slight delay of 1 hour due to traffic.</div>
+        </div>
+        <div class="shipment-card">
+            <div class="shipment-status">Shipment #107:</div>
+            <div class="shipment-message">Delayed due to warehouse inventory issue. Expected delivery in 2 days.</div>
+        </div>
+    </div>
+
+    <!-- Temperature-Controlled Logistics -->
+    <div class="temp-logistics-container">
+        <div class="temp-title">Temperature-Controlled Logistics</div>
+        <div class="temp-status">Status: Monitoring</div>
+        <div class="temp-message">All temperature-sensitive shipments are being tracked in real-time. No current issues reported.</div>
+    </div>
+
 {% endblock %}

@@ -1,5 +1,292 @@
 {% extends 'base.html' %}
 {% block title %}Quality Control - PharmaCare{% endblock %}
+
 {% block content %}
-    <h2>Quality Control</h2>
+    <style>
+        /* Quality Control Dashboard Styles */
+        .dashboard {
+            display: grid;
+            gap: 2rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header Section */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .dashboard-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        /* Status Overview Section */
+        .status-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .status-card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+        }
+
+        .status-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .status-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .status-description {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Quality Issues Section */
+        .issues-container {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .issues-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .issues-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .issue-card {
+            background: var(--background);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .issue-card:hover {
+            transform: translateX(5px);
+        }
+
+        .issue-card.warning {
+            border-left-color: #f59e0b;
+        }
+
+        .issue-card.danger {
+            border-left-color: #ef4444;
+        }
+
+        .issue-card.success {
+            border-left-color: #10b981;
+        }
+
+        .issue-status {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning .issue-status { color: #f59e0b; }
+        .danger .issue-status { color: #ef4444; }
+        .success .issue-status { color: #10b981; }
+
+        .issue-message {
+            color: var(--text);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Alert Section */
+        .alert-container {
+            background: linear-gradient(135deg, #ef4444, #f59e0b);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .alert-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+        }
+
+        .alert-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .alert-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .alert-message {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .status-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Quality Control Overview</h1>
+        </div>
+
+        <div class="status-overview">
+            <div class="status-card">
+                <div class="status-header">
+                    <div class="status-icon">📊</div>
+                    <div class="status-title">Production Status</div>
+                </div>
+                <div class="status-value">Active</div>
+                <div class="status-description">Real-time monitoring of production lines</div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-header">
+                    <div class="status-icon">🔍</div>
+                    <div class="status-title">Quality Score</div>
+                </div>
+                <div class="status-value">92%</div>
+                <div class="status-description">Overall quality performance today</div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-header">
+                    <div class="status-icon">⚡</div>
+                    <div class="status-title">System Health</div>
+                </div>
+                <div class="status-value">98%</div>
+                <div class="status-description">All systems operational</div>
+            </div>
+        </div>
+
+        <div class="issues-container">
+            <div class="issues-header">
+                <div class="issues-title">Recent Quality Issues</div>
+            </div>
+
+            <div class="issue-card danger">
+                <div class="issue-status">Critical Issue</div>
+                <div class="issue-message">Batch #101 has failed quality checks. Requires immediate inspection.</div>
+            </div>
+
+            <div class="issue-card warning">
+                <div class="issue-status">Warning</div>
+                <div class="issue-message">Temperature variation detected in Storage Unit B. Monitor closely.</div>
+            </div>
+
+            <div class="issue-card success">
+                <div class="issue-status">Resolved</div>
+                <div class="issue-message">Previous packaging alignment issue has been corrected.</div>
+            </div>
+        </div>
+
+        <div class="alert-container">
+            <div class="alert-content">
+                <div class="alert-title">
+                    ⚠️ Immediate Attention Required
+                </div>
+                <div class="alert-message">
+                    There are 3 quality issues in the last production cycle that require immediate review. 
+                    Please check the inspection logs and take necessary corrective actions.
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

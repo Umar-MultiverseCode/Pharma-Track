@@ -1,5 +1,137 @@
 {% extends 'base.html' %}
 {% block title %}Analytics - PharmaCare{% endblock %}
+
 {% block content %}
-    <h2>Data & Analytics</h2>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #007BFF;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Analytics Overview */
+        .analytics-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .analytics-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .analytics-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .analytics-list {
+            font-size: 16px;
+            color: #333;
+            list-style-type: square;
+            margin-bottom: 20px;
+        }
+
+        /* Analytics Graph Section */
+        .graph-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .graph-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .graph-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Data Insights Section */
+        .insights-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .insights-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .insight-item {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <h2>Data & Analytics Overview</h2>
+
+    <!-- Analytics Information Section -->
+    <div class="analytics-container">
+        <div class="analytics-title">Analytics Overview</div>
+        <div class="analytics-text">
+            PharmaCare leverages advanced data analytics to monitor pharmaceutical operations, identify trends, optimize inventory, and ensure the quality of products. By using machine learning algorithms and real-time data, we provide actionable insights to enhance decision-making.
+        </div>
+        <div class="analytics-text">
+            Our platform integrates data from various sources, including inventory management systems, regulatory reports, and quality control processes, to deliver comprehensive analytics and predictive insights.
+        </div>
+        <ul class="analytics-list">
+            <li>Real-time data integration from all departments.</li>
+            <li>Predictive analytics to forecast inventory needs.</li>
+            <li>Data-driven decisions for improving manufacturing quality.</li>
+            <li>Compliance monitoring through data reports.</li>
+        </ul>
+    </div>
+
+    <!-- Analytics Graph Section -->
+    <div class="graph-container">
+        <div class="graph-title">Real-Time Data Analytics Graph</div>
+        <div class="graph-placeholder">
+            Analytics Graph (To be integrated)
+        </div>
+    </div>
+
+    <!-- Data Insights Section -->
+    <div class="insights-container">
+        <div class="insights-title">Key Insights</div>
+        <div class="insight-item">Inventory optimization models forecast a 15% reduction in stockouts this quarter.</div>
+        <div class="insight-item">Quality monitoring data suggests a decrease in defect rates by 20% over the past 6 months.</div>
+        <div class="insight-item">Demand forecasting models have improved accuracy, reducing excess stock by 18%.</div>
+        <div class="insight-item">Compliance reports indicate 100% adherence to regulatory standards in the last audit cycle.</div>
+    </div>
+
 {% endblock %}

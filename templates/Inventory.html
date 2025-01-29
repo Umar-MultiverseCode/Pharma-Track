@@ -1,5 +1,96 @@
 {% extends 'base.html' %}
 {% block title %}Inventory - PharmaCare{% endblock %}
+
 {% block content %}
-    <h2>Inventory Management</h2>
+    <style>
+        /* Inventory Page Styling */
+        .inventory-container {
+            margin-top: 20px;
+        }
+
+        .inventory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .inventory-header h2 {
+            margin: 0;
+        }
+
+        .search-bar {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .inventory-table th, .inventory-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .inventory-table th {
+            background: #007BFF;
+            color: white;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .in-stock { background: #28a745; color: white; }
+        .low-stock { background: #ffc107; color: black; }
+        .out-of-stock { background: #dc3545; color: white; }
+    </style>
+
+    <div class="inventory-container">
+        <div class="inventory-header">
+            <h2>Inventory Management</h2>
+            <input type="text" class="search-bar" placeholder="Search products...">
+        </div>
+
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Paracetamol</td>
+                    <td>Medicine</td>
+                    <td>150</td>
+                    <td><span class="status in-stock">In Stock</span></td>
+                </tr>
+                <tr>
+                    <td>Insulin</td>
+                    <td>Medicine</td>
+                    <td>15</td>
+                    <td><span class="status low-stock">Low Stock</span></td>
+                </tr>
+                <tr>
+                    <td>Surgical Mask</td>
+                    <td>Equipment</td>
+                    <td>0</td>
+                    <td><span class="status out-of-stock">Out of Stock</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

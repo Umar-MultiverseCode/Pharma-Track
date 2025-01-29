@@ -1,5 +1,133 @@
 {% extends 'base.html' %}
 {% block title %}Compliance - PharmaCare{% endblock %}
+
 {% block content %}
-    <h2>Compliance & Regulations</h2>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #007BFF;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Compliance Section */
+        .compliance-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .compliance-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .compliance-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .compliance-list {
+            font-size: 16px;
+            color: #333;
+            list-style-type: square;
+            margin-bottom: 20px;
+        }
+
+        /* Compliance Guidelines */
+        .guidelines-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .guidelines-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .guideline-item {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Regulatory Authorities Section */
+        .authorities-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .authorities-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .authority-item {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <h2>Compliance & Regulations Overview</h2>
+
+    <!-- Compliance Information Section -->
+    <div class="compliance-container">
+        <div class="compliance-title">Overview of Compliance</div>
+        <div class="compliance-text">
+            The pharmaceutical industry is heavily regulated to ensure the safety, quality, and efficacy of drugs. Compliance with these regulations is vital for maintaining public health and avoiding legal penalties.
+        </div>
+        <div class="compliance-text">
+            PharmaCare follows all applicable local, national, and international laws and regulations to ensure that our products meet the highest standards of quality and safety.
+        </div>
+        <ul class="compliance-list">
+            <li>Regulatory Compliance</li>
+            <li>Safety Standards</li>
+            <li>Quality Assurance</li>
+            <li>Environmental Regulations</li>
+        </ul>
+    </div>
+
+    <!-- Compliance Guidelines Section -->
+    <div class="guidelines-container">
+        <div class="guidelines-title">Key Compliance Guidelines</div>
+        <div class="guideline-item">Adhere to Good Manufacturing Practices (GMP) in the production process.</div>
+        <div class="guideline-item">Ensure all products pass clinical trials and are approved by regulatory bodies.</div>
+        <div class="guideline-item">Maintain accurate and transparent records for traceability and auditing.</div>
+        <div class="guideline-item">Conduct regular inspections to ensure all practices meet legal requirements.</div>
+    </div>
+
+    <!-- Regulatory Authorities Section -->
+    <div class="authorities-container">
+        <div class="authorities-title">Regulatory Authorities & Compliance Bodies</div>
+        <div class="authority-item">The US Food and Drug Administration (FDA)</div>
+        <div class="authority-item">European Medicines Agency (EMA)</div>
+        <div class="authority-item">World Health Organization (WHO)</div>
+        <div class="authority-item">Health Canada</div>
+        <div class="authority-item">Central Drugs Standard Control Organization (CDSCO)</div>
+    </div>
+
 {% endblock %}
