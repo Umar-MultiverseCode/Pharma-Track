@@ -67,10 +67,10 @@ Find the complete documentation [here](https://linktodocumentation).
 
 ## 🤝 Contributors
 
-- **Umar Mulla** - [email@gmail.com](mailto:email@gmail.com)  
-- **Naish Sayed** - [email@gmail.com](mailto:email@gmail.com)  
-- **Jahir Shaikh** - [email@gmail.com](mailto:email@gmail.com)  
-- **Faisal Phansopkar** - [email.@gmail.com](mailto:email.@gmail.com)  
+- **Umar Mulla** - [umarmulla7700@gmail.com](mailto:email@gmail.com)  
+- **Naish Sayed** - [sayedniash@gmail.com](mailto:email@gmail.com)  
+- **Jahir Shaikh** - [jahirshaikh162003@gmail.com](mailto:email@gmail.com)  
+- **Faisal Phansopkar** - [phansopkarfaisal.@gmail.com](mailto:email.@gmail.com)  
 
 ---
 
